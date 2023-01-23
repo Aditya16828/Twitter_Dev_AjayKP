@@ -21,5 +21,10 @@ tweetSchema.virtual('contentWithEmail').get(function process(){
 })
 
 
+tweetSchema.pre('save', function(next){
+    console.log('inside a hook');
+    next();
+})
+
 const Tweet = mongoose.model('Tweet', tweetSchema);
 module.exports = Tweet;

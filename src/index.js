@@ -32,16 +32,16 @@ app.listen(3000, async () => {
     // tweet.comments.push({content: 'first comment'});
     // await tweet.save();
 
-    // const tweet = await tweetrepo.create({
-    //         content: ' Tweet with comments schema',
-    //         userEmail: 'aj@mail.com'
-    //     });
-    // console.log(tweet);
+    const tweet = await tweetrepo.create({
+            content: ' Tweet with Hooks',
+            userEmail: 'aj@mail.com'
+        });
+     console.log(tweet);
     // const comment = await Comment.create({ content: 'new comment'});
     // tweet.comments.push(comment);
     // await tweet.save();
 
     //const tweet = await tweetrepo.getWithComments('63cd5a9b69f49d64ac4ae485');
-    const tweet = await tweetrepo.getAll(2, 4)
-    console.log(tweet[0].contentWithEmail);
+    // const tweet = await tweetrepo.getAll(2, 4)
+    // console.log(tweet[0].contentWithEmail);
 });
