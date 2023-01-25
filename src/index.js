@@ -36,7 +36,7 @@ app.listen(3000, async () => {
             content: ' Tweet with Hooks',
             userEmail: 'aj@mail.com'
         });
-     console.log(tweet);
+      console.log(tweet);
     // const comment = await Comment.create({ content: 'new comment'});
     // tweet.comments.push(comment);
     // await tweet.save();
