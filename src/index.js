@@ -1,7 +1,10 @@
-const express = require('express');
-const connect = require('./config/database');
+import express from 'express';
+import {connect} from './config/database.js';
+
 const app = express();
 
+import service from './services/tweet-service.js'
+//import HashtagRepository from './repository/hashtag-repository.js';
 //const {TweetRepository} = require('./repository/index');
 //const TweetService = require('./services/tweet-service');
 //const HashtagRepository = require('./repository/hashtag-repository');
@@ -78,4 +81,7 @@ app.listen(3000, async () => {
     //let service = new TweetService();
     // const tweet = service.create({content: 'Is tweeter #working'});
     // console.log(tweet);
+
+    let ser = new service();
+   await ser.create({content: 'Done with #refrector ?'});
 });
