@@ -5,10 +5,12 @@ class TweetService {
     constructor(){
         this.tweetRepository = new TweetRepository();
         this.hashtagRepository = new HashtagRepository();
-    }   //create a tweet
+    }   //create a tweet and distuinguish the hashtag
     async create(data){
         const content = data.content;
-        const tags=content.match(/#[a-zA-Z0-9_]+/g).map((tag) => tag.substring(1)); // this regex extract hastags 
+        const tags=content.match(/#[a-zA-Z0-9_]+/g)
+            .map((tag) => tag.substring(1))
+            .map(tag => tag.toLowerCase()); // this regex extract hastags 
         console.log(tags);
         const tweet = await this.tweetRepository.create(data);
         let alreadyPresentTags = await this.hashtagRepository.findByName(tags);
