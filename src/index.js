@@ -1,9 +1,21 @@
 import express from 'express';
+
+import bodyParser from 'body-parser';
+
 import {connect} from './config/database.js';
+
+import apiRoutes from './routes/index.js'
 
 const app = express();
 
-import service from './services/tweet-service.js'
+
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+
+
+app.use('/api', apiRoutes);
+//import service from './services/tweet-service.js'
 //import HashtagRepository from './repository/hashtag-repository.js';
 //const {TweetRepository} = require('./repository/index');
 //const TweetService = require('./services/tweet-service');
@@ -82,6 +94,6 @@ app.listen(3000, async () => {
     // const tweet = service.create({content: 'Is tweeter #working'});
     // console.log(tweet);
 
-    let ser = new service();
-   await ser.create({content: 'my other #CodE #works'});
+    //let ser = new service();
+   //await ser.create({content: '#nono'});
 });

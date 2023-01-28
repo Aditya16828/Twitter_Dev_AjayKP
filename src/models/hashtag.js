@@ -17,7 +17,7 @@ const hashtagSchema = new mongoose.Schema({
 //hook
 hashtagSchema.pre('save', function(next){
     this.title=this.title.toLowerCase();
-next();
+    next();
 })
 
 const Hashtag = mongoose.model('Hashtag', hashtagSchema);
