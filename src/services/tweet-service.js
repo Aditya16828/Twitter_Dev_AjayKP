@@ -5,7 +5,8 @@ class TweetService {
     constructor(){
         this.tweetRepository = new TweetRepository();
         this.hashtagRepository = new HashtagRepository();
-    }   //create a tweet and distuinguish the hashtag
+    }   
+    //create a tweet and distuinguish the hashtag
     async create(data){
         const content = data.content;
         const tags=content.match(/#[a-zA-Z0-9_]+/g)
