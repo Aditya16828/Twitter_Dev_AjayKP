@@ -28,6 +28,7 @@ class CrudRepository {
         try {
             const result = await this.model.findById(id);
             return result;
+            console.log(result);
         } catch (error) { 
             console.log("Something went wrong in crud repo");
             throw error;

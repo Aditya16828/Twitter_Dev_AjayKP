@@ -5,7 +5,7 @@ const commentSchema = new mongoose.Schema({
         type: String,
         require: true,
     },
-    user:{
+    userId:{
         type: mongoose.Schema.Types.ObjectId,
         require: true,
         ref: 'User'
@@ -19,7 +19,14 @@ const commentSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         require: true,
         refPath: 'onModel'
-    }
+    },
+    comments: [
+        {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Comment'
+        }
+    ]
+   
 },{timestamps: true});
 
 const Comment = mongoose.model('Comment', commentSchema);
