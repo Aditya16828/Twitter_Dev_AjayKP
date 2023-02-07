@@ -8,6 +8,7 @@ class CommentService {
     }
 
     async create(modelId, modelType, userId, content){
+        console.log(userId);
        
         if(modelType == 'Tweet'){
             //console.log("Inside model type");
